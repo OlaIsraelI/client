@@ -3279,6 +3279,43 @@ h3 {
   .footer-copy {
     padding-bottom: 22px;
   }
+
+  /* ===== NEW: MENU ROW STACKING FIX FOR MOBILE ===== */
+  /* Override desktop grid to stack vertically */
+  .menu-row-pizza,
+  .menu-row-dessert,
+  .menu-row-pasta {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  /* Make both cards full width */
+  .menu-list-card,
+  .menu-visual-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Give the image card appropriate height */
+  .menu-visual-card {
+    min-height: 240px;
+    overflow: hidden;
+  }
+
+  .menu-visual-card img {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    object-fit: cover;
+  }
+
+  /* Keep original order: text on top, image below for all rows */
+  .menu-list-card {
+    order: 1;
+  }
+  .menu-visual-card {
+    order: 2;
+  }
 }
 
 /* Optional: Add this class for scrolled effect (use with JS) */
