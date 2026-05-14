@@ -239,6 +239,10 @@
         position: relative;
       }
 
+      .product-card-highlight {
+        box-shadow: 0 0 0 3px rgba(242, 101, 58, 0.35), 0 20px 40px rgba(0, 0, 0, 0.12);
+      }
+
       .product-card:hover {
         transform: translateY(-8px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
@@ -671,8 +675,7 @@
         </div>
       </div>
       <div class="footer-copy section-shell">
-        © 2026 UltraVeg Pizza. All rights reserved. | Crafted with
-        <span>❤</span> and <span>🍕</span>
+          © 2026 UltraVeg Pizza. All rights reserved. | Crafted with care
       </div>
     </footer>
 
@@ -944,7 +947,7 @@
             );
 
             return `
-            <div class="product-card" data-id="${product.id}">
+            <div class="product-card" id="product-${product.id}" data-id="${product.id}">
               <button class="wishlist-btn-card ${inWishlist ? "active" : ""}" onclick="toggleWishlist(${product.id})">
                 <i class="fa-${inWishlist ? "solid" : "regular"} fa-heart"></i>
               </button>
@@ -955,9 +958,9 @@
               <div class="product-content">
                 <h3 class="product-title">${product.name}</h3>
                 <div class="product-category">
-                  <span>${product.category === "signature" ? "🔥 Signature" : product.category === "classic" ? "🍕 Classic" : product.category === "veggie" ? "🌱 Veggie" : "🌶️ Spicy"}</span>
+                  <span>${product.category === "signature" ? "Signature" : product.category === "classic" ? "Classic" : product.category === "veggie" ? "Veggie" : "Spicy"}</span>
                   <div class="rating">
-                    ${"★".repeat(Math.floor(product.rating))}${product.rating % 1 ? "½" : ""}
+                    ${"".repeat(Math.floor(product.rating))}${product.rating % 1 ? "" : ""}
                     <span>(${product.rating})</span>
                   </div>
                 </div>
@@ -982,14 +985,20 @@
           .join("");
       }
 
+      function setActiveFilter(category) {
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        filterBtns.forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.category === category);
+        });
+      }
+
       // Filter functionality
       function initFilters() {
         const filterBtns = document.querySelectorAll(".filter-btn");
         filterBtns.forEach((btn) => {
           btn.addEventListener("click", () => {
-            filterBtns.forEach((b) => b.classList.remove("active"));
-            btn.classList.add("active");
             currentCategory = btn.dataset.category;
+            setActiveFilter(currentCategory);
             renderProducts();
           });
         });
@@ -1105,11 +1114,41 @@
         }
       }
 
+      function applyMenuDestinationFromUrl() {
+        const params = new URLSearchParams(window.location.search);
+        const category = params.get("category");
+        const productId = params.get("product");
+        const validCategories = new Set(["all", "signature", "classic", "veggie", "spicy"]);
+
+        if (category && validCategories.has(category)) {
+          currentCategory = category;
+        }
+
+        return { productId };
+      }
+
+      function scrollToProduct(productId) {
+        if (!productId) return;
+
+        const target = document.getElementById(`product-${productId}`);
+        if (!target) return;
+
+        target.scrollIntoView({ behavior: "smooth", block: "center" });
+        target.classList.add("product-card-highlight");
+        window.setTimeout(() => {
+          target.classList.remove("product-card-highlight");
+        }, 1800);
+      }
+
       // Initialize everything
       document.addEventListener("DOMContentLoaded", () => {
         loadData();
-        renderProducts();
+        const { productId } = applyMenuDestinationFromUrl();
         initFilters();
+        setActiveFilter(currentCategory);
+        renderProducts();
+
+        window.setTimeout(() => scrollToProduct(productId), 50);
 
         const sliderContainer = document.querySelector(
           ".hero-slider .slider-container",

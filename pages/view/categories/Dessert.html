@@ -16,20 +16,74 @@
     <link rel="stylesheet" href="../../../assets/css/dessert.css" />
   </head>
   <body>
-    <header class="header">[SAME HEADER AS OTHER PAGES]</header>
+    <header class="header">
+      <nav class="navigation-bar">
+        <a class="logo" href="index.html" aria-label="Go to home section">
+          <img src="../../../assets/images/logo.png" alt="Logo" />
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav-menu"
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+        <div class="nav-links" id="primary-nav-menu">
+          <ul>
+            <li>
+              <a class="nav-order-button" href="../../../pages/view/about.html"
+                >ABOUT</a
+              >
+            </li>
+            <li><a href="../../../pages/view/contact.html">CONTACT</a></li>
+            <li>
+              <a href="../../../pages/view/categories/categories.html"
+                >CATEGORIES</a
+              >
+            </li>
+            <li><a href="../../../pages/view/menu/menu.html">MENU</a></li>
+          </ul>
+        </div>
+        <div class="nav-actions">
+          <a
+            class="cart-link"
+            href="../../../pages/view/shopping.html"
+            aria-label="Shopping cart"
+          >
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>CART</span>
+          </a>
+          <a
+            class="wishlist-link"
+            href="../../../pages/view/wishlist.html"
+            aria-label="Wishlist"
+          >
+            <i class="fa-regular fa-heart"></i>
+            <span>WISHLIST</span>
+          </a>
+          <a
+            class="signup-button"
+            href="../../../pages/auth/login.html"
+            aria-label="Account"
+          >
+            <i class="fa-regular fa-user"></i>
+            <span>ORDER NOW</span>
+          </a>
+        </div>
+      </nav>
+    </header>
 
     <main class="category-page">
       <div class="category-container">
-        <a href="./Top-categories.html" class="back-link">
+        <a href="./categories.html" class="back-link">
           <i class="fa-solid fa-arrow-left"></i> Back to Categories
         </a>
 
         <div class="category-hero">
-          <h1>🍰 Desserts</h1>
-          <p>
-            [CATEGORY DESCRIPTION - e.g., "Refreshing drinks to complement your
-            meal"]
-          </p>
+          <h1>Desserts</h1>
+          <p></p>
         </div>
 
         <div id="productsGrid" class="products-grid"></div>
@@ -83,8 +137,7 @@
         </div>
       </div>
       <div class="footer-copy section-shell">
-        © 2026 UltraVeg Pizza. All rights reserved. | Crafted with
-        <span>❤</span> and <span>🍕</span>
+        © 2026 UltraVeg Pizza. All rights reserved. | Crafted with care
       </div>
     </footer>
 

@@ -24,7 +24,7 @@
 }
 
 .wishlist-hero::before {
-  content: "❤️";
+  content: "";
   position: absolute;
   font-size: 200px;
   right: 20px;

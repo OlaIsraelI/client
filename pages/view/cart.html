@@ -27,7 +27,11 @@
           <ul>
             <li><a href="../../pages/view/about.html">ABOUT</a></li>
             <li><a href="../../pages/view/contact.html">CONTACT</a></li>
-            <li><a href="../../pages/view/categories/categories.html">CATEGORIES</a></li>
+            <li>
+              <a href="../../pages/view/categories/categories.html"
+                >CATEGORIES</a
+              >
+            </li>
             <li><a href="../../pages/view/menu/menu.html">MENU</a></li>
           </ul>
         </div>
@@ -58,9 +62,15 @@
             <p>Review and manage your items before checkout</p>
           </div>
           <div class="cart-steps">
-            <div class="step active"><span class="step-number">1</span><span>Cart</span></div>
-            <div class="step"><span class="step-number">2</span><span>Checkout</span></div>
-            <div class="step"><span class="step-number">3</span><span>Payment</span></div>
+            <div class="step active">
+              <span class="step-number">1</span><span>Cart</span>
+            </div>
+            <div class="step">
+              <span class="step-number">2</span><span>Checkout</span>
+            </div>
+            <div class="step">
+              <span class="step-number">3</span><span>Payment</span>
+            </div>
           </div>
         </div>
 
@@ -93,13 +103,27 @@
 
             <!-- Coupon Section -->
             <div class="coupon-section">
-              <input type="text" id="couponInput" class="coupon-input" placeholder="Enter coupon code (PIZZA20, SAVE10, FREEDEL)">
-              <button id="applyCouponBtn" class="apply-coupon">Apply Coupon</button>
+              <input
+                type="text"
+                id="couponInput"
+                class="coupon-input"
+                placeholder="Enter coupon code (PIZZA20, SAVE10, FREEDEL)"
+              />
+              <button id="applyCouponBtn" class="apply-coupon">
+                Apply Coupon
+              </button>
             </div>
-            <div id="couponMessage" style="font-size:0.8rem; margin-top:8px;"></div>
+            <div
+              id="couponMessage"
+              style="font-size: 0.8rem; margin-top: 8px"
+            ></div>
 
             <!-- Savings Display -->
-            <div class="savings-section" id="savingsSection" style="display:none;">
+            <div
+              class="savings-section"
+              id="savingsSection"
+              style="display: none"
+            >
               <div class="savings-item">
                 <span>🎉 Coupon Savings</span>
                 <span id="savingsAmount">-₦0.00</span>
@@ -118,7 +142,7 @@
               <span>Delivery Fee</span>
               <span id="deliveryFee">₦1,500.00</span>
             </div>
-            <div class="summary-row" id="discountRow" style="display:none;">
+            <div class="summary-row" id="discountRow" style="display: none">
               <span>Discount</span>
               <span id="discountAmount">-₦0.00</span>
             </div>
@@ -126,7 +150,9 @@
               <span>Total Amount</span>
               <span id="totalAmount">₦0.00</span>
             </div>
-            <button id="checkoutBtn" class="checkout-btn">Proceed to Checkout</button>
+            <button id="checkoutBtn" class="checkout-btn">
+              Proceed to Checkout
+            </button>
             <button id="clearCartBtn" class="clear-cart-btn">Clear Cart</button>
             <a href="menu.html" class="continue-shopping">
               <i class="fa-solid fa-arrow-left"></i> Continue Shopping
@@ -139,7 +165,10 @@
           <h2>You May Also Like</h2>
           <div class="popular-grid">
             <a href="menu.html" class="popular-card">
-              <img src="../../assets/images/delicious-whole-vegetable-pizza.jpg" alt="Veggie Pizza">
+              <img
+                src="../../assets/images/delicious-whole-vegetable-pizza.jpg"
+                alt="Veggie Pizza"
+              />
               <div class="popular-card-content">
                 <h4>Veggie Supreme</h4>
                 <span class="old-price">₦25,000</span>
@@ -147,7 +176,10 @@
               </div>
             </a>
             <a href="menu.html" class="popular-card">
-              <img src="../../assets/images/pizza-with-extra-cheese.jpg" alt="Cheese Pizza">
+              <img
+                src="../../assets/images/pizza-with-extra-cheese.jpg"
+                alt="Cheese Pizza"
+              />
               <div class="popular-card-content">
                 <h4>Cheese Overload</h4>
                 <span class="old-price">₦24,000</span>
@@ -155,7 +187,10 @@
               </div>
             </a>
             <a href="menu.html" class="popular-card">
-              <img src="../../assets/images/pepperoni-pizza.jpg" alt="Pepperoni">
+              <img
+                src="../../assets/images/pepperoni-pizza.jpg"
+                alt="Pepperoni"
+              />
               <div class="popular-card-content">
                 <h4>Spicy Pepperoni</h4>
                 <span class="old-price">₦26,000</span>
@@ -163,7 +198,7 @@
               </div>
             </a>
             <a href="menu.html" class="popular-card">
-              <img src="../../assets/images/margherita.jpg" alt="Margherita">
+              <img src="../../assets/images/margherita.jpg" alt="Margherita" />
               <div class="popular-card-content">
                 <h4>Italian Margherita</h4>
                 <span class="old-price">₦20,000</span>
@@ -179,7 +214,11 @@
       <div class="section-shell footer-grid">
         <div class="footer-brand">
           <div class="footer-brand-head">
-            <img class="footer-logo" src="../../assets/images/logo.png" alt="Logo" />
+            <img
+              class="footer-logo"
+              src="../../assets/images/logo.png"
+              alt="Logo"
+            />
             <h3>UltraVeg Pizza</h3>
           </div>
           <p>Bringing authentic Italian pizza to your table today.</p>
@@ -187,9 +226,17 @@
         <div class="footer-column">
           <h3>Contact</h3>
           <ul class="footer-contact-list">
-            <li><i class="fa-solid fa-location-dot"></i><span>Redeemers University, Ede, Osun State</span></li>
-            <li><i class="fa-solid fa-phone"></i><span>+234 706 4207 988</span></li>
-            <li><i class="fa-solid fa-envelope"></i><span>ultravegpizza@gmail.com</span></li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i
+              ><span>Redeemers University, Ede, Osun State</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i><span>+234 706 4207 988</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i
+              ><span>ultravegpizza@gmail.com</span>
+            </li>
           </ul>
         </div>
         <div class="footer-column">
@@ -210,7 +257,7 @@
         </div>
       </div>
       <div class="footer-copy section-shell">
-        © 2026 UltraVeg Pizza. All rights reserved. | Crafted with ❤ and 🍕
+        © 2026 UltraVeg Pizza. All rights reserved. | Crafted with care
       </div>
     </footer>
 
@@ -220,39 +267,39 @@
       let appliedCoupon = null;
 
       const coupons = {
-        'PIZZA20': { discount: 20, type: 'percentage' },
-        'SAVE10': { discount: 10, type: 'percentage' },
-        'FREEDEL': { discount: 1500, type: 'fixed', message: 'Free Delivery!' }
+        PIZZA20: { discount: 20, type: "percentage" },
+        SAVE10: { discount: 10, type: "percentage" },
+        FREEDEL: { discount: 1500, type: "fixed", message: "Free Delivery!" },
       };
       const DELIVERY_FEE = 1500;
 
       function loadCart() {
-        const saved = localStorage.getItem('ultraveg_cart');
+        const saved = localStorage.getItem("ultraveg_cart");
         if (saved) cart = JSON.parse(saved);
         renderCart();
         updateCartCount();
       }
 
       function saveCart() {
-        localStorage.setItem('ultraveg_cart', JSON.stringify(cart));
+        localStorage.setItem("ultraveg_cart", JSON.stringify(cart));
         updateCartCount();
       }
 
       function updateCartCount() {
         const total = cart.reduce((sum, i) => sum + i.quantity, 0);
-        const countEl = document.getElementById('cartCount');
+        const countEl = document.getElementById("cartCount");
         if (countEl) countEl.textContent = total;
       }
 
       function calculateSubtotal() {
-        return cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+        return cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
       }
 
       function calculateDiscount(subtotal) {
         if (!appliedCoupon || !coupons[appliedCoupon]) return 0;
         const c = coupons[appliedCoupon];
-        if (c.type === 'percentage') return (subtotal * c.discount) / 100;
-        if (c.type === 'fixed') return Math.min(c.discount, subtotal);
+        if (c.type === "percentage") return (subtotal * c.discount) / 100;
+        if (c.type === "fixed") return Math.min(c.discount, subtotal);
         return 0;
       }
 
@@ -264,33 +311,35 @@
       }
 
       function renderCart() {
-        const tbody = document.getElementById('cartItemsList');
-        const subtotalEl = document.getElementById('subtotal');
-        const totalEl = document.getElementById('totalAmount');
-        const discountRow = document.getElementById('discountRow');
-        const discountAmountEl = document.getElementById('discountAmount');
-        const savingsSection = document.getElementById('savingsSection');
-        const savingsAmountEl = document.getElementById('savingsAmount');
-        const checkoutBtn = document.getElementById('checkoutBtn');
+        const tbody = document.getElementById("cartItemsList");
+        const subtotalEl = document.getElementById("subtotal");
+        const totalEl = document.getElementById("totalAmount");
+        const discountRow = document.getElementById("discountRow");
+        const discountAmountEl = document.getElementById("discountAmount");
+        const savingsSection = document.getElementById("savingsSection");
+        const savingsAmountEl = document.getElementById("savingsAmount");
+        const checkoutBtn = document.getElementById("checkoutBtn");
 
         if (!cart.length) {
           tbody.innerHTML = `<tr class="empty-row"><td colspan="5"><div class="empty-cart"><i class="fa-solid fa-shopping-cart"></i><h3>Your cart is empty</h3><p>Looks like you haven't added any pizzas yet.</p><a href="menu.html" class="browse-menu">Browse Menu</a></div></td></tr>`;
-          if (subtotalEl) subtotalEl.textContent = '₦0.00';
-          if (totalEl) totalEl.textContent = '₦0.00';
-          if (discountRow) discountRow.style.display = 'none';
-          if (savingsSection) savingsSection.style.display = 'none';
+          if (subtotalEl) subtotalEl.textContent = "₦0.00";
+          if (totalEl) totalEl.textContent = "₦0.00";
+          if (discountRow) discountRow.style.display = "none";
+          if (savingsSection) savingsSection.style.display = "none";
           if (checkoutBtn) checkoutBtn.disabled = true;
           return;
         }
 
-        tbody.innerHTML = cart.map((item, idx) => `
+        tbody.innerHTML = cart
+          .map(
+            (item, idx) => `
           <tr>
             <td data-label="Product">
               <div class="product-cell">
-                <img src="${item.image || '../../assets/images/pizza-placeholder.jpg'}" alt="${item.name}">
+                <img src="${item.image || "../../assets/images/pizza-placeholder.jpg"}" alt="${item.name}">
                 <div>
                   <h4>${item.name}</h4>
-                  <p>${item.category || 'Pizza'}</p>
+                  <p>${item.category || "Pizza"}</p>
                 </div>
               </div>
             </td>
@@ -305,7 +354,9 @@
             <td data-label="Total" class="price-cell">₦${(item.price * item.quantity).toFixed(2)}</td>
             <td><button class="remove-item-btn" onclick="removeFromCart(${idx})"><i class="fa-solid fa-trash"></i></button></td>
           </tr>
-        `).join('');
+        `,
+          )
+          .join("");
 
         const subtotal = calculateSubtotal();
         const discount = calculateDiscount(subtotal);
@@ -315,26 +366,31 @@
         if (totalEl) totalEl.textContent = `₦${total.toFixed(2)}`;
 
         if (discount > 0) {
-          if (discountRow) discountRow.style.display = 'flex';
-          if (discountAmountEl) discountAmountEl.textContent = `-₦${discount.toFixed(2)}`;
-          if (savingsSection) savingsSection.style.display = 'block';
-          if (savingsAmountEl) savingsAmountEl.textContent = `-₦${discount.toFixed(2)}`;
+          if (discountRow) discountRow.style.display = "flex";
+          if (discountAmountEl)
+            discountAmountEl.textContent = `-₦${discount.toFixed(2)}`;
+          if (savingsSection) savingsSection.style.display = "block";
+          if (savingsAmountEl)
+            savingsAmountEl.textContent = `-₦${discount.toFixed(2)}`;
         } else {
-          if (discountRow) discountRow.style.display = 'none';
-          if (savingsSection) savingsSection.style.display = 'none';
+          if (discountRow) discountRow.style.display = "none";
+          if (savingsSection) savingsSection.style.display = "none";
         }
         if (checkoutBtn) checkoutBtn.disabled = false;
       }
 
-      window.updateQuantity = function(index, newQty) {
-        if (newQty < 1) { removeFromCart(index); return; }
+      window.updateQuantity = function (index, newQty) {
+        if (newQty < 1) {
+          removeFromCart(index);
+          return;
+        }
         if (newQty > 99) newQty = 99;
         cart[index].quantity = newQty;
         saveCart();
         renderCart();
       };
 
-      window.removeFromCart = function(index) {
+      window.removeFromCart = function (index) {
         cart.splice(index, 1);
         saveCart();
         if (cart.length === 0) appliedCoupon = null;
@@ -342,27 +398,29 @@
       };
 
       function applyCoupon() {
-        const input = document.getElementById('couponInput');
-        const msgDiv = document.getElementById('couponMessage');
+        const input = document.getElementById("couponInput");
+        const msgDiv = document.getElementById("couponMessage");
         const code = input.value.trim().toUpperCase();
 
         if (!code) {
-          msgDiv.innerHTML = '<span style="color:#dc3545">Please enter a coupon code</span>';
+          msgDiv.innerHTML =
+            '<span style="color:#dc3545">Please enter a coupon code</span>';
           return;
         }
 
         if (coupons[code]) {
           appliedCoupon = code;
           msgDiv.innerHTML = `<span style="color:#28a745">Coupon applied! ${coupons[code].message || `${coupons[code].discount}% off`}</span>`;
-          input.value = '';
+          input.value = "";
           renderCart();
         } else {
-          msgDiv.innerHTML = '<span style="color:#dc3545">Invalid coupon code</span>';
+          msgDiv.innerHTML =
+            '<span style="color:#dc3545">Invalid coupon code</span>';
         }
       }
 
       function clearCart() {
-        if (confirm('Clear your entire cart?')) {
+        if (confirm("Clear your entire cart?")) {
           cart = [];
           appliedCoupon = null;
           saveCart();
@@ -372,24 +430,33 @@
 
       function proceedToCheckout() {
         if (cart.length === 0) {
-          alert('Your cart is empty');
+          alert("Your cart is empty");
           return;
         }
-        localStorage.setItem('ultraveg_checkout_data', JSON.stringify({
-          cart: cart,
-          subtotal: calculateSubtotal(),
-          discount: calculateDiscount(calculateSubtotal()),
-          total: calculateTotal(),
-          coupon: appliedCoupon
-        }));
-        window.location.href = 'checkout.html';
+        localStorage.setItem(
+          "ultraveg_checkout_data",
+          JSON.stringify({
+            cart: cart,
+            subtotal: calculateSubtotal(),
+            discount: calculateDiscount(calculateSubtotal()),
+            total: calculateTotal(),
+            coupon: appliedCoupon,
+          }),
+        );
+        window.location.href = "checkout.html";
       }
 
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
         loadCart();
-        document.getElementById('applyCouponBtn')?.addEventListener('click', applyCoupon);
-        document.getElementById('clearCartBtn')?.addEventListener('click', clearCart);
-        document.getElementById('checkoutBtn')?.addEventListener('click', proceedToCheckout);
+        document
+          .getElementById("applyCouponBtn")
+          ?.addEventListener("click", applyCoupon);
+        document
+          .getElementById("clearCartBtn")
+          ?.addEventListener("click", clearCart);
+        document
+          .getElementById("checkoutBtn")
+          ?.addEventListener("click", proceedToCheckout);
       });
     </script>
   </body>

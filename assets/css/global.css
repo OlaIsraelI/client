@@ -304,7 +304,7 @@ a:not([class]):focus-visible {
 main {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 94px 24px 0; /* Increased top padding to clear fixed header */
+  padding: 94px 24px 0;
 }
 
 .section-shell {
@@ -462,10 +462,8 @@ main {
 
 /* =========================================
    ABOUT PAGE STYLES - NEST GROCERY
-   Add these styles to your global.css file
    ========================================= */
 
-/* Hero Section */
 .about-hero-section {
   background: #e9eceb;
   padding: 100px 0 60px;
@@ -548,7 +546,6 @@ main {
   transform: translateY(-2px);
 }
 
-/* Services Grid */
 .services-grid-about {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -612,7 +609,6 @@ main {
   gap: 12px;
 }
 
-/* Partner Section */
 .partner-section-about {
   background: #f9f9f9;
   padding: 60px;
@@ -690,7 +686,6 @@ main {
   display: block;
 }
 
-/* Why Choose Us Section */
 .why-choose-section {
   padding: 34px 34px 30px;
   border-radius: var(--radius-lg);
@@ -746,7 +741,6 @@ main {
   line-height: 1.6;
 }
 
-/* Team Section */
 .team-section-about {
   background: #f9f9f9;
   padding: 60px;
@@ -806,7 +800,6 @@ main {
   font-size: 14px;
 }
 
-/* CTA Section */
 .cta-section-about {
   background: linear-gradient(135deg, #f2653a, #d38b2b);
   padding: 34px 34px 30px;
@@ -883,7 +876,6 @@ main {
   margin-bottom: 12px;
 }
 
-/* Section Header */
 .section-header {
   margin-bottom: 40px;
 }
@@ -896,7 +888,6 @@ main {
   font-family: "Limelight", cursive;
 }
 
-/* Animation Classes for About Page */
 .fade-in-up {
   opacity: 0;
   transform: translateY(40px);
@@ -941,7 +932,6 @@ main {
   transform: scale(1);
 }
 
-/* Responsive Styles for About Page */
 @media (max-width: 968px) {
   .services-grid-about,
   .features-grid-about,
@@ -1043,7 +1033,6 @@ main {
   }
 }
 
-/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   .fade-in-up,
   .slide-in-left,
@@ -1067,7 +1056,7 @@ main {
 }
 
 /* =========================================
-   WHAT WE PROVIDE SECTION - UPDATED DESIGN
+   WHAT WE PROVIDE SECTION
    ========================================= */
 
 .what-we-provide-section {
@@ -1187,7 +1176,6 @@ main {
   transform: translateX(3px);
 }
 
-/* Responsive for What We Provide Section */
 @media (max-width: 968px) {
   .providers-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1214,7 +1202,6 @@ main {
   }
 }
 
-/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   .provider-card,
   .provider-icon,
@@ -1228,7 +1215,7 @@ main {
 }
 
 /* =========================================
-   PARTNER/PERFORMANCE SECTION - UPDATED DESIGN
+   PARTNER/PERFORMANCE SECTION
    ========================================= */
 
 .performance-section {
@@ -1354,7 +1341,6 @@ main {
   font-size: 18px;
 }
 
-/* Responsive for Performance Section */
 @media (max-width: 968px) {
   .performance-content {
     grid-template-columns: 1fr;
@@ -1577,7 +1563,6 @@ main {
   font-weight: 500;
 }
 
-/* Responsive for Team Section */
 @media (max-width: 1024px) {
   .team-grid-new {
     grid-template-columns: repeat(2, 1fr);
@@ -1708,7 +1693,6 @@ main {
   transform: translateY(0);
 }
 
-/* Success Message */
 .newsletter-success {
   display: none;
   margin-top: 20px;
@@ -1735,7 +1719,6 @@ main {
   }
 }
 
-/* Responsive for Newsletter Section */
 @media (max-width: 768px) {
   .newsletter-section {
     padding: 40px 25px;
@@ -1775,10 +1758,9 @@ main {
 }
 
 /* =========================================
-   SCROLL-TRIGGERED ANIMATIONS - REPEATABLE
+   SCROLL-TRIGGERED ANIMATIONS
    ========================================= */
 
-/* Base animation classes */
 .animate-on-scroll {
   opacity: 0;
   transition:
@@ -1791,17 +1773,14 @@ main {
   transform: translate(0, 0) scale(1);
 }
 
-/* Hero Section - Fade In Up */
 .hero-animate {
   transform: translateY(40px);
 }
 
-/* Categories Section - Slide from Left */
 .categories-animate {
   transform: translateX(-50px);
 }
 
-/* Category Items - Staggered from Bottom */
 .category-item-animate {
   opacity: 0;
   transform: translateY(40px);
@@ -1815,27 +1794,22 @@ main {
   transform: translateY(0);
 }
 
-/* About Section - Scale Up */
 .about-animate {
   transform: scale(0.95);
 }
 
-/* About Media - Slide from Right */
 .about-media-animate {
   transform: translateX(60px);
 }
 
-/* About Copy - Slide from Left */
 .about-copy-animate {
   transform: translateX(-60px);
 }
 
-/* Popular Foods Title - Fade In Down */
 .popular-title-animate {
   transform: translateY(-30px);
 }
 
-/* Menu Rows - Alternating Animations */
 .menu-row-left-animate {
   transform: translateX(-80px);
 }
@@ -1844,12 +1818,10 @@ main {
   transform: translateX(80px);
 }
 
-/* Feature Promo - Zoom In */
 .feature-promo-animate {
   transform: scale(0.95);
 }
 
-/* Feature Gallery Items */
 .gallery-item-animate {
   opacity: 0;
   transform: translateY(30px);
@@ -1863,7 +1835,6 @@ main {
   transform: translateY(0);
 }
 
-/* Mini Menu Items - Staggered Animation */
 .mini-menu-item-animate {
   opacity: 0;
   transform: translateY(30px);
@@ -1877,27 +1848,22 @@ main {
   transform: translateY(0);
 }
 
-/* Promo Strip - Slide from Bottom */
 .promo-strip-animate {
   transform: translateY(50px);
 }
 
-/* Testimonials Section - Fade In */
 .testimonials-animate {
   transform: translateY(30px);
 }
 
-/* Menu Preview - Fade In Up */
 .menu-preview-animate {
   transform: translateY(40px);
 }
 
-/* Footer - Fade In Up */
 .footer-animate {
   transform: translateY(30px);
 }
 
-/* Stagger delays for category items */
 .category-item:nth-child(1) .category-item-animate {
   transition-delay: 0.05s;
 }
@@ -1917,7 +1883,6 @@ main {
   transition-delay: 0.3s;
 }
 
-/* Stagger delays for gallery items */
 .feature-gallery > *:nth-child(1) {
   transition-delay: 0.1s;
 }
@@ -1928,7 +1893,6 @@ main {
   transition-delay: 0.3s;
 }
 
-/* FIX: Testimonial text visibility - ensure text is not blurred */
 .testimonial-slide {
   position: absolute;
   inset: 0;
@@ -1959,10 +1923,10 @@ main {
 
 .testimonial-slide p {
   max-width: 74ch;
-  color: #4b4f4d !important; /* Force text color */
+  color: #4b4f4d !important;
   line-height: 1.6;
   font-size: 0.95rem;
-  opacity: 1 !important; /* Ensure full opacity */
+  opacity: 1 !important;
   visibility: visible !important;
   font-weight: 400;
   text-shadow: none;
@@ -1989,7 +1953,6 @@ main {
   font-size: 0.74rem;
 }
 
-/* Ensure testimonial track has proper height */
 .testimonial-track {
   position: relative;
   min-height: 380px;
@@ -2005,12 +1968,10 @@ main {
   margin-top: 8px;
 }
 
-/* Testimonial slide animation class (removed since it causes issues) */
 .testimonial-slide-animate {
   /* Remove problematic animation */
 }
 
-/* Hover effects */
 .category-item:hover,
 .menu-list-card:hover,
 .product-card:hover,
@@ -2030,7 +1991,6 @@ main {
     box-shadow 0.3s ease;
 }
 
-/* Fix for any blur or opacity issues */
 .about-description,
 .pasta-description,
 .feature-copy p,
@@ -2040,12 +2000,10 @@ main {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Optional: Add smooth scrolling to body */
 html {
   scroll-behavior: smooth;
 }
 
-/* Performance optimization for animations */
 @media (prefers-reduced-motion: reduce) {
   .animate-on-scroll,
   .category-item-animate,
@@ -2061,7 +2019,6 @@ html {
   }
 }
 
-/* Mobile performance optimization */
 @media (max-width: 768px) {
   .animate-on-scroll,
   .category-item-animate,
@@ -2071,7 +2028,6 @@ html {
   }
 }
 
-/* Loading skeleton effect while scrolling */
 .loading-skeleton {
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 1000px 100%;
@@ -2100,14 +2056,12 @@ h3 {
   line-height: 0.98;
 }
 
-/* Override: use gold color for h2 inside the hero (second) section */
 .hero.section-shell h2 {
-  color: #d4af37; /* gold */
+  color: #d4af37;
 }
 
-/* Make slider captions (first section) h2 gold as well */
 .hero-slider .slide-caption h2 {
-  color: #d4af37; /* gold */
+  color: #d4af37;
 }
 
 .section-heading h2,
@@ -3143,7 +3097,7 @@ h3 {
 
   main {
     padding-inline: 18px;
-    padding-top: 90px; /* Adjusted for mobile fixed header */
+    padding-top: 90px;
   }
 
   .promo-strip {
@@ -3218,7 +3172,6 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  /* ===== UI messages (merged from ui.css) ===== */
   #message {
     position: fixed;
     top: 20px;
@@ -3232,7 +3185,6 @@ h3 {
     display: none;
   }
 
-  /* Types */
   .message.success {
     background-color: #28a745;
   }
@@ -3280,8 +3232,7 @@ h3 {
     padding-bottom: 22px;
   }
 
-  /* ===== NEW: MENU ROW STACKING FIX FOR MOBILE ===== */
-  /* Override desktop grid to stack vertically */
+  /* ===== FIX 1: MENU ROW STACKING (text on top, image below) ===== */
   .menu-row-pizza,
   .menu-row-dessert,
   .menu-row-pasta {
@@ -3289,14 +3240,12 @@ h3 {
     gap: 24px;
   }
 
-  /* Make both cards full width */
   .menu-list-card,
   .menu-visual-card {
     width: 100%;
     max-width: 100%;
   }
 
-  /* Give the image card appropriate height */
   .menu-visual-card {
     min-height: 240px;
     overflow: hidden;
@@ -3309,12 +3258,46 @@ h3 {
     object-fit: cover;
   }
 
-  /* Keep original order: text on top, image below for all rows */
   .menu-list-card {
     order: 1;
   }
   .menu-visual-card {
     order: 2;
+  }
+
+  /* ===== FIX 2: CATEGORIES SECTION (2 columns on tablet, 1 column on small mobile) ===== */
+  /* Already handled above with .category-strip grid-template-columns: repeat(2, minmax(0, 1fr)) */
+  /* Make category items easier to tap */
+  .category-item {
+    padding: 12px 8px;
+  }
+
+  .category-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .category-item h3 a {
+    display: block;
+    padding: 4px;
+  }
+}
+
+/* Extra small devices (phones under 480px) - categories become 1 column */
+@media (max-width: 480px) {
+  .category-strip {
+    grid-template-columns: 1fr !important;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .category-item img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .category-item h3 {
+    font-size: 1rem;
   }
 }
 

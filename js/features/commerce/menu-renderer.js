@@ -28,7 +28,7 @@ const render = () => {
         <h3 class="card-title">${p.name}</h3>
         <div class="card-footer">
           <span class="card-price">${formatCurrency(p.price)}</span>
-          <div class="card-rating"><span class="stars">★★★★★</span></div>
+          <div class="card-rating"><span class="stars">5.0</span></div>
         </div>
         <button class="add-cart-btn" data-action="add" data-id="${p.id}" data-name="${p.name}" data-price="${p.price}" data-image="${p.image}" data-category="${p.category}" data-sku="${p.sku}">Add to cart</button>
       </div>
