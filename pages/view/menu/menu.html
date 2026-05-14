@@ -1,0 +1,1127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu - Ultraveg Pizza | Artisan Pizza Delivered</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../../../assets/css/global.css" />
+    <style>
+      /* Menu Page Styles - Modern Restaurant Style */
+      .menu-page {
+        background: linear-gradient(135deg, #f8f5f0 0%, #f0ebe3 100%);
+        min-height: 100vh;
+        padding-top: 0;
+      }
+
+      /* Hero Slider - Full Width */
+      .hero-slider {
+        position: relative;
+        width: 100%;
+        height: 85vh;
+        min-height: 550px;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+
+      .slider-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.8s ease-in-out,
+          visibility 0.8s ease-in-out;
+      }
+
+      .slide.active {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1;
+      }
+
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.65);
+      }
+
+      .slide-caption {
+        position: absolute;
+        bottom: 25%;
+        left: 10%;
+        color: white;
+        text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+        max-width: 600px;
+        z-index: 2;
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .slide-caption h2 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        font-family: "Limelight", cursive;
+        font-weight: 400;
+      }
+
+      .slide-caption p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s;
+      }
+
+      .slider-btn:hover {
+        background: #f2653a;
+      }
+
+      .prev-btn {
+        left: 20px;
+      }
+      .next-btn {
+        right: 20px;
+      }
+
+      .slider-dots {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 12px;
+        z-index: 10;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .dot.active {
+        background: #f2653a;
+        width: 30px;
+        border-radius: 10px;
+      }
+
+      /* Menu Container */
+      .menu-container {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+
+      /* Section Header */
+      .menu-header {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+
+      .menu-header .badge {
+        display: inline-block;
+        background: #f2653a;
+        color: white;
+        padding: 6px 18px;
+        border-radius: 40px;
+        font-size: 0.8rem;
+        margin-bottom: 16px;
+      }
+
+      .menu-header h1 {
+        font-size: 2.5rem;
+        font-family: "Limelight", cursive;
+        color: #2f6f52;
+        margin-bottom: 12px;
+      }
+
+      .menu-header p {
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Category Filters */
+      .category-filters {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 48px;
+      }
+
+      .filter-btn {
+        padding: 10px 28px;
+        background: white;
+        border: 2px solid #e0ddd8;
+        border-radius: 40px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        color: #555;
+      }
+
+      .filter-btn:hover {
+        border-color: #f2653a;
+        color: #f2653a;
+      }
+
+      .filter-btn.active {
+        background: #f2653a;
+        border-color: #f2653a;
+        color: white;
+      }
+
+      /* Products Grid */
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 32px;
+        margin-bottom: 60px;
+      }
+
+      /* Product Card */
+      .product-card {
+        background: white;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+      }
+
+      .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      /* Wishlist Button */
+      .wishlist-btn-card {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+        background: white;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 2;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s;
+      }
+
+      .wishlist-btn-card i {
+        font-size: 1.2rem;
+        color: #ccc;
+        transition: all 0.2s;
+      }
+
+      .wishlist-btn-card.active i,
+      .wishlist-btn-card:hover i {
+        color: #ff4444;
+      }
+
+      .wishlist-btn-card:hover {
+        transform: scale(1.1);
+      }
+
+      /* Product Image */
+      .product-image {
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+        background: #f5f0e8;
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .product-card:hover .product-image img {
+        transform: scale(1.08);
+      }
+
+      .discount-tag {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        background: #f2653a;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        font-weight: 600;
+      }
+
+      /* Product Content */
+      .product-content {
+        padding: 20px;
+      }
+
+      .product-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+        color: #2f6f52;
+      }
+
+      .product-category {
+        font-size: 0.7rem;
+        color: #aaa;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .rating {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        color: #ffc107;
+        font-size: 0.8rem;
+      }
+
+      .rating span {
+        color: #888;
+        margin-left: 4px;
+      }
+
+      .price-section {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        margin: 12px 0;
+      }
+
+      .current-price {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #f2653a;
+      }
+
+      .old-price {
+        font-size: 0.85rem;
+        color: #bbb;
+        text-decoration: line-through;
+      }
+
+      /* Quantity Selector */
+      .quantity-selector {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 12px 0;
+      }
+
+      .qty-control {
+        display: flex;
+        align-items: center;
+        border: 1px solid #e0ddd8;
+        border-radius: 40px;
+        overflow: hidden;
+      }
+
+      .qty-btn {
+        width: 32px;
+        height: 32px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.2s;
+      }
+
+      .qty-btn:hover {
+        background: #f2653a;
+        color: white;
+      }
+
+      .qty-value {
+        width: 40px;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      /* Add to Cart Button */
+      .add-to-cart-btn {
+        width: 100%;
+        padding: 12px;
+        background: #2f6f52;
+        color: white;
+        border: none;
+        border-radius: 40px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .add-to-cart-btn:hover {
+        background: #1e4a38;
+        transform: scale(1.02);
+      }
+
+      .add-to-cart-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+      /* Toast Notification */
+      .toast-message {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #2f6f52;
+        color: white;
+        padding: 14px 24px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        z-index: 1000;
+        animation: slideInRight 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      @keyframes slideInRight {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .slide-caption h2 {
+          font-size: 2rem;
+        }
+        .hero-slider {
+          height: 60vh;
+        }
+        .products-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navigation-bar">
+        <a
+          class="logo"
+          href="../../../index.html"
+          aria-label="Go to home section"
+        >
+          <img src="../../../assets/images/logo.png" alt="Logo" />
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="nav-links" id="primary-nav-menu">
+          <ul>
+            <li><a href="../about.html">ABOUT</a></li>
+            <li><a href="../contact.html">CONTACT</a></li>
+            <li><a href="../categories/categories.html">CATEGORIES</a></li>
+            <li><a class="is-current" href="./menu.html">MENU</a></li>
+          </ul>
+        </div>
+        <div class="nav-actions">
+          <a class="cart-link" href="../cart.html" aria-label="Shopping cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>CART</span>
+            <span class="cart-count" id="cartCount">0</span>
+          </a>
+          <a
+            class="wishlist-link"
+            href="../wishlist.html"
+            aria-label="Wishlist"
+          >
+            <i class="fa-regular fa-heart"></i>
+            <span>WISHLIST</span>
+            <span class="wishlist-count" id="wishlistCount">0</span>
+          </a>
+          <a
+            class="signup-button"
+            href="../../auth/login.html"
+            aria-label="Account"
+          >
+            <i class="fa-regular fa-user"></i>
+            <span>ORDER NOW</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="menu-page">
+      <!-- Hero Slider Section -->
+      <section class="hero-slider">
+        <div class="slider-container">
+          <div class="slider">
+            <div class="slide active">
+              <img
+                src="../../../assets/images/menu-hero-1.jpg"
+                alt="Delicious Veggie Pizza"
+              />
+              <div class="slide-caption">
+                <h2>Artisan Pizza, Fresh Ingredients</h2>
+                <p>Handcrafted with love daily</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img
+                src="../../../assets/images/menu-hero-2.jpg"
+                alt="Cheese Overload"
+              />
+              <div class="slide-caption">
+                <h2>Cheese Overload</h2>
+                <p>Extra cheese, extra joy</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img
+                src="../../../assets/images/menu-hero-3.jpg"
+                alt="Italian Classic"
+              />
+              <div class="slide-caption">
+                <h2>Italian Classic</h2>
+                <p>Authentic taste from Naples</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img
+                src="../../../assets/images/menu-hero-4.jpg"
+                alt="Veggie Supreme"
+              />
+              <div class="slide-caption">
+                <h2>Veggie Supreme</h2>
+                <p>Farm-fresh toppings</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img
+                src="../../../assets/images/menu-hero-5.jpg"
+                alt="Spicy Pepperoni"
+              />
+              <div class="slide-caption">
+                <h2>Spicy Pepperoni</h2>
+                <p>Kick of heat you'll love</p>
+              </div>
+            </div>
+            <div class="slide">
+              <img
+                src="../../../assets/images/menu-hero-6.jpg"
+                alt="Family Combo"
+              />
+              <div class="slide-caption">
+                <h2>Family Combo</h2>
+                <p>Share the happiness</p>
+              </div>
+            </div>
+          </div>
+          <button class="slider-btn prev-btn">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="slider-btn next-btn">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <div class="slider-dots"></div>
+        </div>
+      </section>
+
+      <!-- Menu Section -->
+      <div class="menu-container">
+        <div class="menu-header">
+          <span class="badge">OUR SELECTION</span>
+          <h1>Awakens Your Appetite</h1>
+          <p>
+            Handcrafted pizzas made with the freshest ingredients, baked to
+            perfection in a wood-fired oven.
+          </p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="category-filters">
+          <button class="filter-btn" data-category="all"><a href="../categories/categories.html">            Top Categories
+          </button></a>
+          <button class="filter-btn active" data-category="all">
+            All Pizzas
+          </button>
+          <button class="filter-btn" data-category="signature">
+            Signature
+          </button>
+          <button class="filter-btn" data-category="classic">Classic</button>
+          <button class="filter-btn" data-category="veggie"> Veggie</button>
+          <button class="filter-btn" data-category="spicy">Spicy</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="productsGrid" class="products-grid"></div>
+      </div>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="section-shell footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-head">
+            <img
+              class="footer-logo"
+              src="../../../assets/images/logo.png"
+              alt="Logo"
+            />
+            <h3>UltraVeg Pizza</h3>
+          </div>
+          <p>Bringing authentic Italian pizza to your table today.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fa-solid fa-location-dot"></i
+              ><span>Redeemers University, Ede, Osun State, Nigeria.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i><span>+234 706 4207 988</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i
+              ><span>ultravegpizza@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Opening Hours</h3>
+          <ul class="footer-days-list">
+            <li>Monday - Sunday</li>
+            <li>10:00 AM - 10:00 PM</li>
+          </ul>
+        </div>
+        <div class="footer-column footer-social-column">
+          <h3>Follow Us</h3>
+          <div class="footer-socials">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy section-shell">
+        © 2026 UltraVeg Pizza. All rights reserved. | Crafted with
+        <span>❤</span> and <span>🍕</span>
+      </div>
+    </footer>
+
+    <script>
+      // Product Data
+      const products = [
+        {
+          id: 1,
+          name: "Cheese Overload",
+          category: "signature",
+          price: 22000,
+          oldPrice: 25000,
+          image:
+            "../../../assets/images/pizza-with-extra-cheese-dried-herbs.jpg",
+          rating: 4.9,
+          description:
+            "Four cheese blend with mozzarella, cheddar, parmesan, and gouda",
+        },
+        {
+          id: 2,
+          name: "Italian Margherita",
+          category: "classic",
+          price: 18000,
+          oldPrice: 21000,
+          image: "../../../assets/images/delicious-whole-vegetable-pizza.jpg",
+          rating: 4.8,
+          description: "Fresh tomatoes, basil, and mozzarella on thin crust",
+        },
+        {
+          id: 3,
+          name: "Spicy Pepperoni",
+          category: "spicy",
+          price: 23500,
+          oldPrice: 27000,
+          image:
+            "../../../assets/images/delicious-pepperoni-olive-pizza_84443-77032.jpg",
+          rating: 4.9,
+          description: "Loaded with pepperoni, jalapeños, and spicy sausage",
+        },
+        {
+          id: 4,
+          name: "Veggie Supreme",
+          category: "veggie",
+          price: 22000,
+          oldPrice: 25000,
+          image:
+            "../../../assets/images/delicious-whole-vegetable-pizza-loaded-with-colorful-toppings-like-broccoli-peppers-olives-sliced-ready-serve-against-black-background_84443-59206.avif",
+          rating: 4.7,
+          description: "Bell peppers, mushrooms, olives, onions, and corn",
+        },
+        {
+          id: 5,
+          name: "BBQ Chicken",
+          category: "signature",
+          price: 25500,
+          oldPrice: 29000,
+          image:
+            "../../../assets/images/pizza-pizza-filled-with-tomatoes-salami-olives.jpg",
+          rating: 4.9,
+          description: "Grilled chicken, BBQ sauce, red onions, and cilantro",
+        },
+        {
+          id: 6,
+          name: "Four Cheese",
+          category: "classic",
+          price: 24000,
+          oldPrice: 27500,
+          image:
+            "../../../assets/images/pizza-with-extra-cheese-dried-herbs.jpg",
+          rating: 4.8,
+          description: "Mozzarella, provolone, fontina, and parmesan",
+        },
+        {
+          id: 7,
+          name: "Meat Lovers",
+          category: "signature",
+          price: 26500,
+          oldPrice: 30000,
+          image:
+            "../../../assets/images/delicious-pepperoni-olive-pizza_84443-77032.jpg",
+          rating: 4.9,
+          description: "Pepperoni, sausage, bacon, ham, and beef",
+        },
+        {
+          id: 8,
+          name: "Pesto Garden",
+          category: "veggie",
+          price: 21500,
+          oldPrice: 24000,
+          image: "../../../assets/images/delicious-whole-vegetable-pizza.jpg",
+          rating: 4.7,
+          description:
+            "Pesto base with zucchini, eggplant, and cherry tomatoes",
+        },
+        {
+          id: 9,
+          name: "Diavola",
+          category: "spicy",
+          price: 24500,
+          oldPrice: 28000,
+          image:
+            "../../../assets/images/delicious-whole-vegetable-pizza-loaded-with-colorful-toppings-like-broccoli-peppers-olives-sliced-ready-serve-against-black-background_84443-59206.avif",
+          rating: 4.8,
+          description: "Spicy salami, chili flakes, and fresh basil",
+        },
+        {
+          id: 10,
+          name: "Hawaiian",
+          category: "classic",
+          price: 21000,
+          oldPrice: 23500,
+          image:
+            "../../../assets/images/pizza-pizza-filled-with-tomatoes-salami-olives.jpg",
+          rating: 4.6,
+          description: "Ham, pineapple, and mozzarella cheese",
+        },
+        {
+          id: 11,
+          name: "Truffle Mushroom",
+          category: "signature",
+          price: 28500,
+          oldPrice: 32000,
+          image:
+            "../../../assets/images/pizza-with-extra-cheese-dried-herbs.jpg",
+          rating: 5.0,
+          description: "Truffle oil, wild mushrooms, and ricotta",
+        },
+        {
+          id: 12,
+          name: "Buffalo Chicken",
+          category: "spicy",
+          price: 23800,
+          oldPrice: 26500,
+          image:
+            "../../../assets/images/delicious-pepperoni-olive-pizza_84443-77032.jpg",
+          rating: 4.8,
+          description: "Spicy buffalo chicken, ranch, and celery",
+        },
+      ];
+
+      let cart = [];
+      let wishlist = [];
+      let currentCategory = "all";
+
+      // Load saved data
+      function loadData() {
+        const savedCart = localStorage.getItem("ultraveg_cart");
+        if (savedCart) cart = JSON.parse(savedCart);
+        const savedWishlist = localStorage.getItem("ultraveg_wishlist");
+        if (savedWishlist) wishlist = JSON.parse(savedWishlist);
+        updateCounts();
+      }
+
+      function saveCart() {
+        localStorage.setItem("ultraveg_cart", JSON.stringify(cart));
+        updateCounts();
+      }
+
+      function saveWishlist() {
+        localStorage.setItem("ultraveg_wishlist", JSON.stringify(wishlist));
+        updateCounts();
+      }
+
+      function updateCounts() {
+        const cartTotal = cart.reduce((sum, i) => sum + i.quantity, 0);
+        const cartCountEl = document.getElementById("cartCount");
+        if (cartCountEl) cartCountEl.textContent = cartTotal;
+
+        const wishlistCountEl = document.getElementById("wishlistCount");
+        if (wishlistCountEl) wishlistCountEl.textContent = wishlist.length;
+      }
+
+      function showToast(message, type = "success") {
+        const toast = document.createElement("div");
+        toast.className = "toast-message";
+        toast.innerHTML = `<i class="fa-solid fa-${type === "success" ? "check-circle" : "heart"}"></i> ${message}`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2500);
+      }
+
+      function toggleWishlist(productId) {
+        const index = wishlist.findIndex((i) => i.id === productId);
+        if (index === -1) {
+          const product = products.find((p) => p.id === productId);
+          wishlist.push({ ...product });
+          saveWishlist();
+          showToast(`${product.name} added to wishlist!`, "success");
+        } else {
+          const product = wishlist[index];
+          wishlist.splice(index, 1);
+          saveWishlist();
+          showToast(`${product.name} removed from wishlist`, "success");
+        }
+        renderProducts();
+      }
+
+      function addToCart(productId, quantity = 1) {
+        const product = products.find((p) => p.id === productId);
+        const existing = cart.find((i) => i.id === productId);
+
+        if (existing) {
+          existing.quantity += quantity;
+        } else {
+          cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            quantity: quantity,
+            image: product.image,
+            category: product.category,
+          });
+        }
+
+        saveCart();
+        showToast(`${quantity} × ${product.name} added to cart!`, "success");
+        renderProducts();
+      }
+
+      function updateQuantity(productId, delta, currentQtyElement) {
+        const product = products.find((p) => p.id === productId);
+        const existing = cart.find((i) => i.id === productId);
+
+        if (existing) {
+          const newQty = existing.quantity + delta;
+          if (newQty < 1) return;
+          existing.quantity = newQty;
+        } else {
+          if (delta < 1) return;
+          cart.push({ ...product, quantity: delta });
+        }
+
+        saveCart();
+        if (currentQtyElement) {
+          const newQty = existing ? existing.quantity : delta;
+          currentQtyElement.textContent = newQty;
+        }
+        renderProducts();
+      }
+
+      function getCartQuantity(productId) {
+        const item = cart.find((i) => i.id === productId);
+        return item ? item.quantity : 0;
+      }
+
+      function renderProducts() {
+        const grid = document.getElementById("productsGrid");
+        if (!grid) return;
+
+        const filtered =
+          currentCategory === "all"
+            ? products
+            : products.filter((p) => p.category === currentCategory);
+
+        if (filtered.length === 0) {
+          grid.innerHTML =
+            '<div style="text-align:center; padding:60px;">No products found in this category.</div>';
+          return;
+        }
+
+        grid.innerHTML = filtered
+          .map((product) => {
+            const inWishlist = wishlist.some((i) => i.id === product.id);
+            const cartQty = getCartQuantity(product.id);
+            const savings = product.oldPrice - product.price;
+            const discountPercent = Math.round(
+              (savings / product.oldPrice) * 100,
+            );
+
+            return `
+            <div class="product-card" data-id="${product.id}">
+              <button class="wishlist-btn-card ${inWishlist ? "active" : ""}" onclick="toggleWishlist(${product.id})">
+                <i class="fa-${inWishlist ? "solid" : "regular"} fa-heart"></i>
+              </button>
+              <div class="product-image">
+                <img src="${product.image}" alt="${product.name}">
+                ${savings > 0 ? `<span class="discount-tag">-${discountPercent}%</span>` : ""}
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">${product.name}</h3>
+                <div class="product-category">
+                  <span>${product.category === "signature" ? "🔥 Signature" : product.category === "classic" ? "🍕 Classic" : product.category === "veggie" ? "🌱 Veggie" : "🌶️ Spicy"}</span>
+                  <div class="rating">
+                    ${"★".repeat(Math.floor(product.rating))}${product.rating % 1 ? "½" : ""}
+                    <span>(${product.rating})</span>
+                  </div>
+                </div>
+                <div class="price-section">
+                  <span class="current-price">₦${product.price.toLocaleString()}</span>
+                  ${product.oldPrice ? `<span class="old-price">₦${product.oldPrice.toLocaleString()}</span>` : ""}
+                </div>
+                <div class="quantity-selector">
+                  <div class="qty-control">
+                    <button class="qty-btn" onclick="updateQuantity(${product.id}, -1, this.parentElement.parentElement.querySelector('.qty-value'))">-</button>
+                    <span class="qty-value">${cartQty || 1}</span>
+                    <button class="qty-btn" onclick="updateQuantity(${product.id}, 1, this.parentElement.parentElement.querySelector('.qty-value'))">+</button>
+                  </div>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart(${product.id}, parseInt(this.parentElement.querySelector('.qty-value').textContent))">
+                  <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                </button>
+              </div>
+            </div>
+          `;
+          })
+          .join("");
+      }
+
+      // Filter functionality
+      function initFilters() {
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            filterBtns.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            currentCategory = btn.dataset.category;
+            renderProducts();
+          });
+        });
+      }
+
+      // Hero Slider
+      class HeroSlider {
+        constructor(container) {
+          this.container = container;
+          this.slides = Array.from(container.querySelectorAll(".slide"));
+          this.prevBtn = container.querySelector(".prev-btn");
+          this.nextBtn = container.querySelector(".next-btn");
+          this.dotsContainer = container.querySelector(".slider-dots");
+          this.currentIndex = 0;
+          this.totalSlides = this.slides.length;
+          this.autoPlayInterval = null;
+          this.autoPlayDelay = 5000;
+          this.init();
+        }
+
+        init() {
+          this.createDots();
+          this.updateSlides();
+          this.attachEvents();
+          this.startAutoPlay();
+        }
+
+        createDots() {
+          this.dotsContainer.innerHTML = "";
+          for (let i = 0; i < this.totalSlides; i++) {
+            const dot = document.createElement("div");
+            dot.classList.add("dot");
+            if (i === this.currentIndex) dot.classList.add("active");
+            dot.addEventListener("click", () => {
+              this.stopAutoPlay();
+              this.goToSlide(i);
+              this.startAutoPlay();
+            });
+            this.dotsContainer.appendChild(dot);
+          }
+        }
+
+        updateSlides() {
+          this.slides.forEach((slide, index) => {
+            if (index === this.currentIndex) slide.classList.add("active");
+            else slide.classList.remove("active");
+          });
+          const dots = this.dotsContainer.querySelectorAll(".dot");
+          dots.forEach((dot, index) => {
+            if (index === this.currentIndex) dot.classList.add("active");
+            else dot.classList.remove("active");
+          });
+        }
+
+        goToSlide(index) {
+          if (index < 0) index = this.totalSlides - 1;
+          if (index >= this.totalSlides) index = 0;
+          if (index === this.currentIndex) return;
+          this.currentIndex = index;
+          this.updateSlides();
+        }
+
+        nextSlide() {
+          this.goToSlide(this.currentIndex + 1);
+        }
+        prevSlide() {
+          this.goToSlide(this.currentIndex - 1);
+        }
+
+        attachEvents() {
+          this.prevBtn?.addEventListener("click", () => {
+            this.stopAutoPlay();
+            this.prevSlide();
+            this.startAutoPlay();
+          });
+          this.nextBtn?.addEventListener("click", () => {
+            this.stopAutoPlay();
+            this.nextSlide();
+            this.startAutoPlay();
+          });
+          this.container.addEventListener("mouseenter", () =>
+            this.stopAutoPlay(),
+          );
+          this.container.addEventListener("mouseleave", () =>
+            this.startAutoPlay(),
+          );
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") {
+              this.stopAutoPlay();
+              this.prevSlide();
+              this.startAutoPlay();
+            }
+            if (e.key === "ArrowRight") {
+              this.stopAutoPlay();
+              this.nextSlide();
+              this.startAutoPlay();
+            }
+          });
+        }
+
+        startAutoPlay() {
+          if (this.autoPlayInterval) clearInterval(this.autoPlayInterval);
+          this.autoPlayInterval = setInterval(
+            () => this.nextSlide(),
+            this.autoPlayDelay,
+          );
+        }
+        stopAutoPlay() {
+          if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+          }
+        }
+      }
+
+      // Initialize everything
+      document.addEventListener("DOMContentLoaded", () => {
+        loadData();
+        renderProducts();
+        initFilters();
+
+        const sliderContainer = document.querySelector(
+          ".hero-slider .slider-container",
+        );
+        if (sliderContainer) new HeroSlider(sliderContainer);
+
+        // Fixed navbar scroll effect
+        const header = document.querySelector(".header");
+        if (header) {
+          window.addEventListener("scroll", () => {
+            header.classList.toggle("scrolled", window.scrollY > 50);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
